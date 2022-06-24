@@ -12,11 +12,11 @@ using V.Infrastructure.EF.Identity.Base.Entities;
 
 namespace V.Infrastructure.EF.Identity.Base
 {
-    public class Repository<T, TKey> : IRepository<T, TKey> where T : class, IEntity<TKey>
+    public class Repository<T, TKey, TIdentityKey> : IRepository<T, TKey> where T : class, IEntity<TKey> where TIdentityKey : IEquatable<TIdentityKey>
     {
-        protected IdentityDbContext<User, Role, string> dbContext;
+        protected IdentityDbContext<User<TIdentityKey>, Role<TIdentityKey>, TIdentityKey> dbContext;
         internal DbSet<T> dbSet;
-        public Repository(IdentityDbContext<User, Role, string> dbContext)
+        public Repository(IdentityDbContext<User<TIdentityKey>, Role<TIdentityKey>, TIdentityKey> dbContext)
         {
             this.dbContext = dbContext;
             this.dbSet = dbContext.Set<T>();

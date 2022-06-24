@@ -8,7 +8,7 @@ using V.Domain.Identity.Entities.Abstraction;
 
 namespace V.Infrastructure.EF.Identity.Base.Entities
 {
-    public class Role : IdentityRole<string>, IRole<string>
+    public class Role<TKey> : IdentityRole<TKey>, IRole<TKey> where TKey : IEquatable<TKey>
     {
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
@@ -19,10 +19,10 @@ namespace V.Infrastructure.EF.Identity.Base.Entities
 
         public Role(string name) : base(name)
         {
-            Id = Guid.NewGuid().ToString();
+            //Id = Guid.NewGuid().ToString();
         }
 
-        public Role(string name, string id) : base(name)
+        public Role(string name, TKey id) : base(name)
         {
             Id = id;
             NormalizedName = name.ToUpper();
