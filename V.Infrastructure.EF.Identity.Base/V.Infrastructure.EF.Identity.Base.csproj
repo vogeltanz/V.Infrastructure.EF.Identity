@@ -10,4 +10,9 @@
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.6" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\V.Domain\V.Domain.Base\V.Domain.Base.csproj" />
+    <ProjectReference Include="..\..\V.Domain\V.Domain.Identity\V.Domain.Identity.csproj" />
+  </ItemGroup>
+
 </Project>
