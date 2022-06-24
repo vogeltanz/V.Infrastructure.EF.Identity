@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using V.Domain.Base.Entities.Abstraction;
 using V.Domain.Identity.Entities.Abstraction;
 
 namespace V.Infrastructure.EF.Identity.Base.Entities
 {
-    public class Role<TKey> : IdentityRole<TKey>, IRole<TKey> where TKey : IEquatable<TKey>
+    public class Role<TKey> : IdentityRole<TKey>, IRole<TKey>, IEntity<TKey>, IEntityDateTime where TKey : IEquatable<TKey>
     {
         public DateTime Created { get; set; }
         public DateTime Modified { get; set; }
