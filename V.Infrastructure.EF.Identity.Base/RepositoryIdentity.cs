@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using V.Domain.Base.Entities.Abstraction;
-using V.Infrastructure.EF.Identity.Base.Entities;
 
 namespace V.Infrastructure.EF.Identity.Base
 {
