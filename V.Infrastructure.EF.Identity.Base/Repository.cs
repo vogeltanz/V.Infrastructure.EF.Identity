@@ -1,25 +1,17 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Microsoft.EntityFrameworkCore;
 using System.Linq.Expressions;
-using System.Text;
-using System.Threading.Tasks;
 using V.Domain.Base.Entities.Abstraction;
 using V.Domain.Base.Repository;
-using V.Infrastructure.EF.Identity.Base.Entities;
 
 namespace V.Infrastructure.EF.Identity.Base
 {
-    public class Repository<T, TKey, TIdentityKey> : IRepository<T, TKey> where T : class, IEntity<TKey> where TIdentityKey : IEquatable<TIdentityKey>
+    public class Repository<T, TKey> : IRepository<T, TKey> where T : class, IEntity<TKey>
     {
-        protected IdentityDbContext<User<TIdentityKey>, Role<TIdentityKey>, TIdentityKey> dbContext;
         internal DbSet<T> dbSet;
-        public Repository(IdentityDbContext<User<TIdentityKey>, Role<TIdentityKey>, TIdentityKey> dbContext)
+
+        public Repository(DbSet<T> dbSet)
         {
-            this.dbContext = dbContext;
-            this.dbSet = dbContext.Set<T>();
+            this.dbSet = dbSet;
         }
 
         public virtual void Add(T entity)
