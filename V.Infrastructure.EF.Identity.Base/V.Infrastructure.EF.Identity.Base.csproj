@@ -13,6 +13,7 @@
   <ItemGroup>
     <ProjectReference Include="..\..\V.Domain\V.Domain.Base\V.Domain.Base.csproj" />
     <ProjectReference Include="..\..\V.Domain\V.Domain.Identity\V.Domain.Identity.csproj" />
+    <ProjectReference Include="..\..\V.Infrastructure.EF\V.Infrastructure.EF.Base\V.Infrastructure.EF.Base.csproj" />
   </ItemGroup>
 
 </Project>
